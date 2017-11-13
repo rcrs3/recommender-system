@@ -14,6 +14,7 @@ with open(join(dir_name, 'api_key.json')) as api_key_json:
 def fetch_movie_info(year, movie_name):
 	params = {
 			't': movie_name,
+			'type': 'movie',
 			'apikey': OMDB_API_KEY,
 			'y': year,
 			'plot': 'full'
