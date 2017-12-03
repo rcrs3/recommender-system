@@ -5,7 +5,7 @@ API_KEY = "Your Key"
 
 # change these paths for the path you're using
 # "~" gonna cover os/user
-DATA_PATH = "~/Documents/Projects/recommender-system/data/raw/movies_list.csv"
+DATA_PATH = "../../data/raw/movies_list.csv"
 MOVIES_NAMES_PATH = "movies_names_list.csv"
 
 # transform the dic values into csv format
