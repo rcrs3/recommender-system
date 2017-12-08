@@ -15,5 +15,5 @@
     <li>pip install appjar #GUI</li>
     <li>pip install scipy sklearn pandas #dependencies for data process</li>
 </ul>
-<p>To run: ./gui.py</p>
+<p>To run: python gui.py #Using python 2.x. Note we are running it under virtualenv</p>
   
