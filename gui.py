@@ -1,4 +1,6 @@
 from appJar import gui
+import dataprocess
+
 
 movie_entry = "Movies:"
 search_btn = "search_btn"
@@ -14,8 +16,11 @@ def getEntry(btn):
 		app.setMessage(message_lbl, "This movie isn't in our database")
 	print movie
 
+
 def main():
-	startGUI()
+    dataprocess.find(movie_list)
+	#startGUI()
+
 
 def startGUI():
 	#Basic GUI Configuration
@@ -33,6 +38,7 @@ def startGUI():
 	app.addEmptyMessage(message_lbl)
 
 	app.go()
+
 
 if __name__ == '__main__':
 	main()
