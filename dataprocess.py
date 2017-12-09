@@ -74,7 +74,7 @@ def similar_movie(movies, movies_info_final, cosine_similarities_total):
         if(movies_info_final['Title'][index] in movies):
             similar_indices.append(cosine_similarities_total[index].argsort()[:-50:-1])
             new_genre_mean = list(movies_info_final.loc[index, genres])
-            genre_mean = [x + y for x, y in zip(genre_mean, new_genre_mean)]
+            genre_mean = [g1 + g2 for g1, g2 in zip(genre_mean, new_genre_mean)]
             
             for i in range(len(similar_indices[0])):
                 title = movies_info_final['Title'][similar_indices[0][i]]
