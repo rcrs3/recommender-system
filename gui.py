@@ -1,4 +1,5 @@
 from appJar import gui
+import numpy as np
 import dataprocess
 
 
@@ -6,7 +7,7 @@ movie_entry = "Movies:"
 search_btn = "search_btn"
 message_lbl = "message_lbl"
 app = gui("Recommendation System")
-movie_list = ["Spider Man", "Iron Man", "Iron Maiden"]
+movie_list = np.array([])
 
 def getEntry(btn):
 	movie = app.getEntry(movie_entry)
@@ -18,9 +19,10 @@ def getEntry(btn):
 
 
 def main():
-    dataprocess.find(movie_list)
-	#startGUI()
-
+    global movie_list
+    movie_list = np.append(movie_list,dataprocess.get_movies())
+    startGUI()
+    
 
 def startGUI():
 	#Basic GUI Configuration

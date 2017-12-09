@@ -89,17 +89,16 @@ def similar_movie(movies, movies_info_final, cosine_similarities_total):
     
 def find(movies):
     X, y, genre_mean = similar_movie(movies, movies_info_final, cosine_similarities_total)
-    print(genre_mean)
+    #print(genre_mean)
 
     neigh = KNeighborsRegressor(n_neighbors=10)
     neigh.fit(X, y)
 
     movies_index = neigh.kneighbors(np.reshape(genre_mean, (1, -1)))[1][0]
-    print(movies_index)
+    #print(movies_index)
     movies = [y[i] for i in movies_index]
 
-    print(movies)
-        
-
-def test():
-    print "teste"
+    #print(movies)
+    
+def get_movies():
+    return np.array(movies_info_final["Title"])
