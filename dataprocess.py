@@ -70,18 +70,20 @@ def similar_movie(movies, movies_info_final, cosine_similarities_total):
     y = []
     genre_mean = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     similar_indices = []
+    movies_already_choosen = []
     for index, row in movies_info_final.iterrows():
         if(movies_info_final['Title'][index] in movies):
-            similar_indices.append(cosine_similarities_total[index].argsort()[:-50:-1])
+            similar_indices.append(cosine_similarities_total[index].argsort()[:-100:-1])
             new_genre_mean = list(movies_info_final.loc[index, genres])
             genre_mean = [g1 + g2 for g1, g2 in zip(genre_mean, new_genre_mean)]
             
             for i in range(len(similar_indices[0])):
                 title = movies_info_final['Title'][similar_indices[0][i]]
-                if(title in movies):
+                if((title in movies) or (title in movies_already_choosen)):
                     continue
                 X.append(list(movies_info_final.loc[similar_indices[0][i], genres]))
                 y.append(title)
+                movies_already_choosen.append(title)
      
     genre_mean = [x/3 for x in genre_mean]
     return X, y, genre_mean    
