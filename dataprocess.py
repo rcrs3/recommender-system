@@ -92,7 +92,8 @@ def find(movies):
     neigh = KNeighborsRegressor(n_neighbors=10)
     neigh.fit(X, y)
     movies_index = neigh.kneighbors(np.reshape(genre_mean, (1, -1)))[1][0]
-    movies = [y[i] for i in movies_index]
+    ret = [y[i] for i in movies_index]
+    return ret
     
 def get_movies():
     return np.array(movies_info_final["Title"])
