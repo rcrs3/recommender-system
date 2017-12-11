@@ -85,7 +85,6 @@ def similar_movie(movies, movies_info_final, cosine_similarities_total):
                 y.append(title)
                 movies_already_choosen.append(title)
      
-    genre_mean = [x/3 for x in genre_mean]
     return X, y, genre_mean    
     
     
